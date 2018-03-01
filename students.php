@@ -6,11 +6,15 @@
  * Time: 11:12 AM
  */
 
+$sid = $_POST['studentid'];
+
 $dbh = new PDO("mysql:dbname=asmithgr_grc", "asmithgr_asmith", "Oceans5796!");
 
-$sql = "SELECT * FROM student";
+$sql = "SELECT * FROM student WHERE sid = :sid";
 
 $stmt = $dbh->prepare($sql);
+
+$stmt->bindParam(":sid", $sid);
 
 $stmt->execute();
 
