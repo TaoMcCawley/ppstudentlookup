@@ -6,14 +6,13 @@
 </head>
 <body>
 
-<label>Enter a SID: <input type="text" id="sidinput" name = 'sidinput'><button id = 'lookup'></button></label>
+<label>Enter a SID: <input type="text" id="sidinput" name = 'sidinput'><button id = 'lookup'>Lookup</button></label>
 
     <h1>Student Lookup</h1>
 
-    <p id = 'sid'></p>
-    <p id = 'name'></p>
-    <p id = 'dob'></p>
-    <p id = 'gpa'></p>
+    <div id = 'output'>
+
+    </div>
 
     <script src = "//code.jquery.com/jquery.js"></script>
 
@@ -22,8 +21,8 @@
             var studentid = $('#sidinput').val();
 
             $.post("students.php", {studentid:studentid},  function(result){
-
-            })
+                $('#output').html(result);
+            });
         });
 
 
